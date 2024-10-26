@@ -1,0 +1,7 @@
+---
+# tasks file for tomcat_install
+
+- import_tasks: tomcat_setup.yml
+- import_tasks: tomcat_service_setup.yml
+- import_tasks: start_tomcat.yml
+- import_tasks: copy_files.yml

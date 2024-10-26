@@ -1,0 +1,45 @@
+---
+- name: Modifying managers context.xml file to access the managers application in tomcat
+  copy:
+    src: /home/devops/student-app/tomcat/manager/context.xml
+    dest: /opt/appserver/webapps/manager/META-INF/
+    owner: devops
+    group: devops
+    remote_src: yes
+
+- name: Adding user to the tomcat
+  copy:
+    src: /home/devops/student-app/tomcat/conf/tomcat-users.xml
+    dest: /opt/appserver/conf/
+    owner: devops
+    group: devops
+    remote_src: yes
+
+
+- name: Loading db driver to the tomcat to integrate with db
+  copy:
+    src: /home/devops/student-app/tomcat/lib/mysql-connector.jar
+    dest: /opt/appserver/lib/
+    owner: devops
+    group: devops
+    remote_src: yes
+
+
+- name: Integrating tomcat with db
+  copy:
+    src: /home/devops/student-app/tomcat/conf/context.xml
+    dest: /opt/appserver/conf/
+    owner: devops
+    group: devops
+    remote_src: yes
+
+- name: Deplying war file
+  copy:
+    src: /home/devops/student-app/target/studentapp-1.0.war
+    dest: /opt/appserver/webapps/student.war
+    owner: devops
+    group: devops
+    remote_src: yes
+  notify: Restart Tomcat
+
+

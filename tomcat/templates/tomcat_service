@@ -1,0 +1,22 @@
+ini
+
+[Unit]
+Description=Tomcat Server
+After=syslog.target network.target
+
+[Service]
+Type=forking
+User=devops
+Group=devops
+
+Environment=JAVA_HOME=/usr/lib/jvm/java-17-amazon-corretto.x86_64
+Environment='JAVA_OPTS=-Djava.awt.headless=true'
+Environment=CATALINA_HOME=/opt/appserver/
+Environment=CATALINA_BASE=/opt/appserver/
+Environment=CATALINA_PID=/opt/appserver/temp/tomcat.pid
+Environment='CATALINA_OPTS=-Xms512M -Xmx512M'
+ExecStart=/opt/appserver/bin/catalina.sh start
+ExecStop=/opt/appserver/bin/catalina.sh stop
+
+[Install]
+WantedBy=multi-user.target

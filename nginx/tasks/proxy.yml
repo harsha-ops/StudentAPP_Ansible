@@ -1,0 +1,7 @@
+---
+- name: Setting up nginx reverse proxy
+  copy:
+    src: /home/devops/student-app/nginx/nginx.conf
+    dest: /etc/nginx/
+    remote_src: yes
+  notify: restart nginx

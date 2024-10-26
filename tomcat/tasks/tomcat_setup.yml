@@ -1,0 +1,17 @@
+---
+- name: Downloading Tomcat
+  get_url:
+    url: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.tar.gz
+    dest: /opt/
+
+- name: Extracting Tomcat
+  unarchive:
+    src: /opt/apache-tomcat-9.0.96.tar.gz
+    dest: /opt/
+    remote_src: yes
+
+- name: Renaming the file
+  shell: mv /opt/apache-tomcat-9.0.96 /opt/appserver
+
+- name: Changing Permissions
+  shell: chown -R devops:devops /opt/

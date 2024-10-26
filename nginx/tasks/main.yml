@@ -1,0 +1,7 @@
+---
+# tasks file for nginx
+
+- import_tasks: nginx_install.yml
+- import_tasks: start_nginx.yml
+- import_tasks: deploy_files.yml
+- import_tasks: proxy.yml

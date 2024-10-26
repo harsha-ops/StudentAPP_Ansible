@@ -1,0 +1,5 @@
+---
+- name: Installing mysql
+  yum:
+    name: mariadb-server.x86_64
+    state: present

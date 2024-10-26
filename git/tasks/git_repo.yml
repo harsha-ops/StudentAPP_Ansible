@@ -1,0 +1,15 @@
+---
+- name: cloning the config files of StudentApp repo
+  git:
+    repo: 'https://gitlab.com/rns-app/student-app.git'
+    dest: /home/devops/student-app
+    version: main
+
+- name: cloning the static project repo
+  git:
+    repo: 'https://gitlab.com/rns-app/static-project.git'
+    dest: /home/devops/static-project
+    version: master
+
+
+

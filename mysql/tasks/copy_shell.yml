@@ -1,0 +1,5 @@
+---
+- name: copying the file using shell
+  shell: mysql -uroot < /home/devops/student-app/dbscript/studentapp.sql
+  notify: Restart mysql
+

@@ -1,0 +1,8 @@
+---
+
+- name: deploying files
+  copy:
+    src: /home/devops/static-project/iPortfolio/
+    dest: /usr/share/nginx/html/
+    remote_src: yes
+

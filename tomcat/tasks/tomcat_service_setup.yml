@@ -1,0 +1,11 @@
+---
+- name: Creating tomcat service file
+  template:
+    src: tomcat_service
+    dest: /etc/systemd/system/tomcat.service
+
+- name: Reloading the system daemon to recognize the new service
+  systemd:
+    daemon_reload: yes
+
+
